@@ -1,0 +1,27 @@
+﻿@model CategoryResponsePageVM
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Kategori ismi</th>
+            <th>Aciklaması</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+
+
+        @foreach (CategoryResponseModel item in Model.Categories)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.CategoryName</td>
+                <td>@item.Description</td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
