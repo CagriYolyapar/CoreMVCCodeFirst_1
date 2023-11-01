@@ -1,4 +1,5 @@
 ﻿using CoreMVCCodeFirst_1.Models.Categories.PageVms;
+using CoreMVCCodeFirst_1.Models.Categories.PureVms;
 using CoreMVCCodeFirst_1.Models.Categories.RequestModels;
 using CoreMVCCodeFirst_1.Models.Categories.ResponseModels;
 using CoreMVCCodeFirst_1.Models.ContextClasses;
@@ -63,11 +64,11 @@ namespace CoreMVCCodeFirst_1.Controllers
         public IActionResult UpdateCategory(int id)
         {
 
-            CategoryResponseModel category = CategoryMapper.GetCategoryResponseModel(_db.Categories.Find(id));
+            CategoryVM category = CategoryMapper.GetCategoryVM(_db.Categories.Find(id));
 
             CategorySharedPageVM cpVm = new()
             {
-                CategoryResponse = category
+                Category = category
             };
 
             return View(cpVm);

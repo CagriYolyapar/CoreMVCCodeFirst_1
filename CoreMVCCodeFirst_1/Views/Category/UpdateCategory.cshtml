@@ -9,15 +9,15 @@
 
     *@
 
-    <input type="hidden" asp-for="@Model.CategoryResponse.ID" />
+    <input type="hidden" asp-for="@Model.Category.ID" />
 
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Kategori Ismi</label>
-        <input asp-for="CategoryRequest.CategoryName" class="form-control">
+        <input asp-for="Category.CategoryName" class="form-control">
     </div>
     <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Aciklama</label>
-        <textarea class="form-control" asp-for="CategoryRequest.Description" rows="3"></textarea>
+        <textarea class="form-control" asp-for="Category.Description" rows="3"></textarea>
     </div>
 
     <button class="btn btn-primary">
