@@ -3,6 +3,7 @@ using CoreMVCCodeFirst_1.Models.Categories.RequestModels;
 using CoreMVCCodeFirst_1.Models.Categories.ResponseModels;
 using CoreMVCCodeFirst_1.Models.ContextClasses;
 using CoreMVCCodeFirst_1.Models.Entities;
+using CoreMVCCodeFirst_1.Models.MapperClasses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreMVCCodeFirst_1.Controllers
@@ -13,6 +14,7 @@ namespace CoreMVCCodeFirst_1.Controllers
 
         public CategoryController(MyContext db)
         {
+
             _db = db;
         }
         public IActionResult CreateCategory()
@@ -34,16 +36,20 @@ namespace CoreMVCCodeFirst_1.Controllers
 
             _db.Categories.Add(c);
             _db.SaveChanges();
-            return View();
+
+            //View metodu, View döndürür...Action'i calıstırmaz...
+
+            return RedirectToAction("GetCategories");
         }
 
 
         public IActionResult GetCategories()
         {
-            List<CategoryResponseModel> categories = _db.Categories.Select(x => new CategoryResponseModel 
-            { 
+            List<CategoryResponseModel> categories = _db.Categories.Select(x => new CategoryResponseModel
+            {
+                ID = x.ID,
                 CategoryName = x.CategoryName,
-                Description = x.Description 
+                Description = x.Description
             }).ToList();
 
             CategoryResponsePageVM cpvm = new CategoryResponsePageVM
@@ -53,5 +59,30 @@ namespace CoreMVCCodeFirst_1.Controllers
 
             return View(cpvm);
         }
+
+        public IActionResult UpdateCategory(int id)
+        {
+
+            CategoryResponseModel category = CategoryMapper.GetCategoryResponseModel(_db.Categories.Find(id));
+
+            CategorySharedPageVM cpVm = new()
+            {
+                CategoryResponse = category
+            };
+
+            return View(cpVm);
+        }
+
+
+        [HttpPost]
+        public IActionResult UpdateCategory()
+        {
+            return View();
+        }
+      
+
+
+
+
     }
 }

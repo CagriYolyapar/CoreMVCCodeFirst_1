@@ -1,0 +1,31 @@
+﻿@model CategorySharedPageVM
+
+<form asp-controller="Category" asp-action="UpdateCategory" method="post" class="form">
+
+    @*
+
+    ModelBinding : Bir sistemin (mevcut durumda .Net Core'un Tag Helperlarinin otomatik olarak üstlendigi bir sistemin) Front End'inizdeki inputların icerisine yazılan degerlerin ilgili MOdel'inize aktarılmasıdır (Bind Edilmesidir) .. Bu yapı cift taraflı calısır...Yani Modelinizde bir veri yoksa input'unuza yazdıgınız degeri ilgili property'e baglar...ANcak eger Model'inizden bir veri geliyorsa o property'deki veriyi gider input'a otomatik olarak yazar..
+
+
+    *@
+
+    <input type="hidden" asp-for="@Model.CategoryResponse.ID" />
+
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Kategori Ismi</label>
+        <input asp-for="CategoryRequest.CategoryName" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Aciklama</label>
+        <textarea class="form-control" asp-for="CategoryRequest.Description" rows="3"></textarea>
+    </div>
+
+    <button class="btn btn-primary">
+        Güncelle
+    </button>
+
+
+
+
+
+</form>

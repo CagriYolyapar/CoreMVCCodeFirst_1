@@ -10,6 +10,7 @@ namespace CoreMVCCodeFirst_1.Models.Configurations
         {
             base.Configure(builder);
             builder.ToTable("Kullanicilar");
+
             builder.HasOne(x => x.Profile).WithOne(x => x.AppUser).HasForeignKey<AppUserProfile>(x => x.ID);
 
 

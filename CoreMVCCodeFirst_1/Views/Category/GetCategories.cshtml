@@ -1,11 +1,15 @@
 ﻿@model CategoryResponsePageVM
 
+<h1>Yeni bir kategori eklemek icin <a asp-controller="Category" asp-action="CreateCategory">tıklayınız</a></h1>
+
+
 <table class="table table-hover">
     <thead>
         <tr>
             <th>ID</th>
             <th>Kategori ismi</th>
             <th>Aciklaması</th>
+            <th colspan="2" style="padding-left:200px">Islemler</th>
         </tr>
     </thead>
 
@@ -19,6 +23,8 @@
                 <td>@item.ID</td>
                 <td>@item.CategoryName</td>
                 <td>@item.Description</td>
+                <td>  <a asp-controller="Category" asp-action="UpdateCategory" asp-route-id="@item.ID" class="btn btn-warning">Guncelle</a> </td>
+                <td> <a asp-controller="Category" asp-action="DeleteCategory" class="btn btn-danger">Sil</a>  </td>
             </tr>
         }
 

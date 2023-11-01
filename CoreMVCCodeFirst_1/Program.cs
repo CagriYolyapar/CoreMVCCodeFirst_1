@@ -25,6 +25,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Category}/{action=CreateCategory}/{id?}");
+    pattern: "{controller=Category}/{action=GetCategories}/{id?}");
 
 app.Run();
