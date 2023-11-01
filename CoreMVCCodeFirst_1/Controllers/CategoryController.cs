@@ -76,9 +76,21 @@ namespace CoreMVCCodeFirst_1.Controllers
 
 
         [HttpPost]
-        public IActionResult UpdateCategory()
+        public IActionResult UpdateCategory(CategoryVM category)
         {
-            return View();
+            Category original = _db.Categories.Find(category.ID);
+            original.CategoryName = category.CategoryName;
+            original.Description = category.Description;
+            _db.SaveChanges();
+            TempData["message"] = "Guncelleme basarılı";
+            return RedirectToAction("GetCategories");
+        }
+
+        public IActionResult DeleteCategory(int id)
+        {
+            _db.Categories.Remove(_db.Categories.Find(id));
+            _db.SaveChanges();
+            return RedirectToAction("GetCategories");
         }
       
 

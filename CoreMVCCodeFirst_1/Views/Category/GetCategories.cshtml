@@ -2,6 +2,7 @@
 
 <h1>Yeni bir kategori eklemek icin <a asp-controller="Category" asp-action="CreateCategory">tıklayınız</a></h1>
 
+<h1>@TempData["message"]</h1>
 
 <table class="table table-hover">
     <thead>
@@ -24,7 +25,7 @@
                 <td>@item.CategoryName</td>
                 <td>@item.Description</td>
                 <td>  <a asp-controller="Category" asp-action="UpdateCategory" asp-route-id="@item.ID" class="btn btn-warning">Guncelle</a> </td>
-                <td> <a asp-controller="Category" asp-action="DeleteCategory" class="btn btn-danger">Sil</a>  </td>
+                <td> <a asp-controller="Category" asp-action="DeleteCategory" asp-route-id="@item.ID" class="btn btn-danger">Sil</a>  </td>
             </tr>
         }
 

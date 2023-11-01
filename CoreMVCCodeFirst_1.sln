@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreMVCCodeFirst_1", "CoreMVCCodeFirst_1\CoreMVCCodeFirst_1.csproj", "{CC03A659-9B26-490D-A38C-C7FCCC3C5251}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreMVCCodeFirst_1", "CoreMVCCodeFirst_1\CoreMVCCodeFirst_1.csproj", "{CC03A659-9B26-490D-A38C-C7FCCC3C5251}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{956C2483-875E-40EF-A0EC-A456FFE767FE}"
+	ProjectSection(SolutionItems) = preProject
+		Odev.txt = Odev.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
