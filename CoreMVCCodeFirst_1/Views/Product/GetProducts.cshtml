@@ -1,0 +1,30 @@
+﻿@model ProductPageVM
+
+
+<h3>Yeni bir Urun eklemek icin <a asp-controller="Product" asp-action="CreateProduct">tıklayınız</a></h3>
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Urun Ismi</th>
+            <th>Fiyat</th>
+            <th>Kategorisi</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Product item in Model.Products)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.ProductName</td>
+                <td>@item.UnitPrice</td>
+                <td>@item.Category.CategoryName</td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
